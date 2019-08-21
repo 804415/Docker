@@ -17,12 +17,13 @@ VOLUME /opt/mirth-connect/appdata
 
 RUN \
   cd /tmp && \
+  mkdir -m 777 /opt/mirth-connect && \
   wget http://downloads.mirthcorp.com/connect/$MIRTH_CONNECT_VERSION/mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
   tar xvzf mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
   rm -f mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
   mv Mirth\ Connect/* /opt/mirth-connect/ && \
-  chown -R mirth /opt/mirth-connect 
-  #cd /opt/mirth-connect \
+  chown -R mirth /opt/mirth-connect \
+  cd /opt/mirth-connect 
   
   #COPY /opt/mirth-connect/conf/mirth.properties /tmp
   #COPY /opt/mirth-connect/appdata/extension.properties /tmp 
