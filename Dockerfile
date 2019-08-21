@@ -1,6 +1,6 @@
 FROM java
 
-ENV MIRTH_CONNECT_VERSION 3.6.0.b2287
+ENV MIRTH_CONNECT_VERSION 3.6.1.b220
 
 RUN useradd -u 1000 mirth
 
@@ -23,14 +23,14 @@ RUN \
   mv Mirth\ Connect/* /opt/mirth-connect/ && \
   chown -R mirth /opt/mirth-connect
 
-COPY mirth.properties /tmp
-COPY extension.properties /tmp
-COPY fhir.tar.gz /tmp
+#COPY mirth.properties /tmp
+#COPY extension.properties /tmp
+#COPY fhir.tar.gz /tmp
 
 RUN \
-  cp -af /tmp/mirth.properties /opt/mirth-connect/conf/ && \
-  cp -af /tmp/extension.properties /opt/mirth-connect/appdata/ && \
-  cp -af /tmp/fhir.tar.gz /opt/mirth-connect/extensions/ && \
+  cp -af ~/mirth.properties /opt/mirth-connect/conf/ && \
+  cp -af ~/extension.properties /opt/mirth-connect/appdata/ && \
+  cp -af ~/fhir.tar.gz /opt/mirth-connect/extensions/ && \
   cd /opt/mirth-connect/extensions/ && \
   tar -xzvf fhir.tar.gz && \
   rm -f fhir.tar.gz
