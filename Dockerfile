@@ -21,8 +21,10 @@ RUN \
   tar xvzf mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
   rm -f mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
   mv Mirth\ Connect/* /opt/mirth-connect/ && \
-  chown -R mirth /opt/mirth-connect && \
-  ls    
+  chown -R mirth /opt/mirth-connect
+  
+  COPY fhir.tar.gz /tmp
+  
   #RUN \
   #cp -af /tmp/mirth.properties /opt/mirth-connect/conf/ && \
   #cp -af /tmp/extension.properties /opt/mirth-connect/appdata/ && \
