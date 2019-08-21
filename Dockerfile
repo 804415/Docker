@@ -22,7 +22,7 @@ RUN \
   rm -f mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
   mv Mirth\ Connect/* /opt/mirth-connect/ && \
   chown -R mirth /opt/mirth-connect \
-  cd /opt/mirth-connect \
+  #cd /opt/mirth-connect \
 
 COPY /opt/mirth-connect/conf/mirth.properties /tmp
 COPY /opt/mirth-connect/appdata/extension.properties /tmp
