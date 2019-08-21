@@ -17,7 +17,6 @@ VOLUME /opt/mirth-connect/appdata
 
 RUN \
   cd /tmp && \
-  mkdir -m 777 /opt/mirth-connect && \
   wget http://downloads.mirthcorp.com/connect/$MIRTH_CONNECT_VERSION/mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
   tar xvzf mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
   rm -f mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
@@ -29,7 +28,7 @@ RUN \
   #COPY /opt/mirth-connect/appdata/extension.properties /tmp 
   #COPY /opt/mirth-connect/extensions/fhir.tar.gz /tmp
 
-RUN \
+#RUN \
   #cp -af /tmp/mirth.properties /opt/mirth-connect/conf/ && \
   #cp -af /tmp/extension.properties /opt/mirth-connect/appdata/ && \
   #cp -af /tmp/fhir.tar.gz /opt/mirth-connect/extensions/ && \
