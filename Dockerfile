@@ -22,15 +22,16 @@ RUN \
   rm -f mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
   mv Mirth\ Connect/* /opt/mirth-connect/ && \
   chown -R mirth /opt/mirth-connect
+  cd /opt/mirth-connect \
 
-#COPY mirth.properties /tmp
-#COPY extension.properties /tmp
-#COPY fhir.tar.gz /tmp
+COPY /opt/mirth-connect/conf/mirth.properties /tmp
+COPY /opt/mirth-connect/appdata/extension.properties /tmp
+COPY /opt/mirth-connect/extensions/fhir.tar.gz /tmp
 
 RUN \
-  cp -af ~/mirth.properties /opt/mirth-connect/conf/ && \
-  cp -af ~/extension.properties /opt/mirth-connect/appdata/ && \
-  cp -af ~/fhir.tar.gz /opt/mirth-connect/extensions/ && \
+  cp -af /tmp/mirth.properties /opt/mirth-connect/conf/ && \
+  cp -af /tmp/extension.properties /opt/mirth-connect/appdata/ && \
+  cp -af /tmp/fhir.tar.gz /opt/mirth-connect/extensions/ && \
   cd /opt/mirth-connect/extensions/ && \
   tar -xzvf fhir.tar.gz && \
   rm -f fhir.tar.gz
@@ -49,3 +50,7 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 
 
 CMD ["java", "-jar", "mirth-server-launcher.jar"]
+
+
+
+
