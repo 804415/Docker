@@ -24,10 +24,9 @@ RUN \
   chown -R mirth /opt/mirth-connect 
   #cd /opt/mirth-connect \
   
-RUN \
- cp /opt/mirth-connect/conf/mirth.properties /tmp && \
- cp /opt/mirth-connect/appdata/extension.properties /tmp && \
- cp /opt/mirth-connect/extensions/fhir.tar.gz /tmp
+  #COPY /opt/mirth-connect/conf/mirth.properties /tmp
+  #COPY /opt/mirth-connect/appdata/extension.properties /tmp 
+  #COPY /opt/mirth-connect/extensions/fhir.tar.gz /tmp
 
 RUN \
   cp -af /tmp/mirth.properties /opt/mirth-connect/conf/ && \
