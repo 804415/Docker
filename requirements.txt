@@ -1,7 +1,4 @@
 Flask
 Redis
 
-
-## THIS LINE IS ADDED FOR GIT TRAINING
-
-## BRANCH TEST
+## Updated for training on 26/3/21
